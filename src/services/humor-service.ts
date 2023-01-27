@@ -21,8 +21,7 @@ export async function getHumorsService() {
 export async function postHumorService(humor: humorPost) {
 
     await insertHumor(humor);
-    return true;
-
+ 
 }
 
 export async function putHumorService(humor: humorUpdate, id: number) {
@@ -31,7 +30,6 @@ export async function putHumorService(humor: humorUpdate, id: number) {
     // if (!isHumorExists) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
 
     await updateHumor(humor, id);
-    return true;
 
 }
 
@@ -41,6 +39,5 @@ export async function deleteHumorService(id: number) {
     // if (!isHumorExists) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
 
     await removeHumor(id);
-    return true;
 
 }

@@ -6,7 +6,7 @@ export async function selectAllHumors() {
 }
 
 export async function selectHumorsByMood(mood: string) {
-    return prisma.humor.findFirst({
+    return prisma.humor.findMany({
         where: {
             mood: mood
         }
