@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model humor {
+  id         Int     @id @default(autoincrement())
+  mood       String?
+  activities String?
+  date       String
+}
+
+model analysis {
+  id          Int     @id @default(autoincrement())
+  humorWhy    String?
+  howToChange String?
+}
