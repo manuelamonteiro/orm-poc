@@ -46,10 +46,6 @@ export async function putAnalysis(req: Request, res: Response) {
 
     } catch (error) {
 
-        // if(error.type === "humorNotExist"){
-        //     return res.status(404).send({message: error.message})
-        // }
-
         return res.status(500).send({ message: error.message });
 
     }
@@ -66,10 +62,6 @@ export async function deleteAnalysis(req: Request, res: Response) {
         res.sendStatus(204);
 
     } catch (error) {
-
-        // if(error.type === "humorNotExist"){
-        //     return res.status(404).send({message: error.message})
-        // }
 
         return res.status(500).send({ message: error.message });
 

@@ -16,17 +16,11 @@ export async function postAnalysisService(analysis: analysisPost) {
 
 export async function putAnalysisService(analysis: analysisPost, id: number) {
 
-    const isAnalysisExists = await selectAnalysisById(id);
-    // if (!isAnalysisExists) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
-
     await updateAnalysis(analysis, id);
 
 }
 
 export async function deleteAnalysisService(id: number) {
-
-    const isAnalysisExists = await selectAnalysisById(id);
-    // if (!isAnalysisExists) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
 
     await removeAnalysis(id);
     

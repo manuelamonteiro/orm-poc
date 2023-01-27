@@ -61,10 +61,6 @@ export async function putHumor(req: Request, res: Response) {
 
     } catch (error) {
 
-        // if(error.type === "humorNotExist"){
-        //     return res.status(404).send({message: error.message})
-        // }
-
         return res.status(500).send({ message: error.message });
 
     }
@@ -81,10 +77,6 @@ export async function deleteHumor(req: Request, res: Response) {
         res.sendStatus(204);
 
     } catch (error) {
-
-        // if(error.type === "humorNotExist"){
-        //     return res.status(404).send({message: error.message})
-        // }
 
         return res.status(500).send({ message: error.message });
         

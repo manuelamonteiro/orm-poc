@@ -7,6 +7,6 @@ export const humorAnalysisPost = Joi.object({
 });
 
 export const humorAnalysisUpdate = Joi.object({
-    mood: Joi.valid("radiante", "bem", "mais ou menos", "mal").required(),
-    activities: Joi.string().required()
+    mood: Joi.valid("radiante", "bem", "mais ou menos", "mal"),
+    activities: Joi.string()
 });
