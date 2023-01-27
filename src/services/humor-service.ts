@@ -26,11 +26,17 @@ export async function postHumorService(humor: humorPost) {
 
 export async function putHumorService(humor: humorUpdate, id: number) {
 
+    const isHumorExists = await selectHumorById(id);
+    if (isHumorExists === null || isHumorExists === undefined) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
+    
     await updateHumor(humor, id);
 
 }
 
 export async function deleteHumorService(id: number) {
+
+    const isHumorExists = await selectHumorById(id);
+    if (isHumorExists === null || isHumorExists === undefined) throw { type: "humorNotExist", message: "O humor escolhido não existe!" }
 
     await removeHumor(id);
 

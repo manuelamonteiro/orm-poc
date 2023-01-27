@@ -1,3 +1,12 @@
+export type signUp = {
+    name: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+}
+
+export type signIn = Omit<signUp, "name">
+
 export type humorAnalysis = {
     id: string | number,
     date: string,

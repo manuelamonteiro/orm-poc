@@ -11,8 +11,10 @@ export async function getHumors(req: Request, res: Response) {
         const moodLower = mood.toString().toLowerCase();
 
         try {
+
             const moodList = await getHumorsServiceByQuery(moodLower);
             return res.status(200).send(moodList);
+
         } catch (error) {
 
             return res.status(500).send({ message: error.message });
@@ -22,8 +24,10 @@ export async function getHumors(req: Request, res: Response) {
     }
 
     try {
+
         const humorsList = await getHumorsService();
         res.status(200).send(humorsList);
+        
     } catch (error) {
 
         return res.status(500).send({ message: error.message });
@@ -61,6 +65,10 @@ export async function putHumor(req: Request, res: Response) {
 
     } catch (error) {
 
+        if(error.type === "humorNotExist"){
+            return res.status(404).send({message: error.message})
+        }
+
         return res.status(500).send({ message: error.message });
 
     }
@@ -78,6 +86,10 @@ export async function deleteHumor(req: Request, res: Response) {
 
     } catch (error) {
 
+        if(error.type === "humorNotExist"){
+            return res.status(404).send({message: error.message})
+        }
+        
         return res.status(500).send({ message: error.message });
         
     }

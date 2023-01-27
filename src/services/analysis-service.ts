@@ -16,11 +16,19 @@ export async function postAnalysisService(analysis: analysisPost) {
 
 export async function putAnalysisService(analysis: analysisPost, id: number) {
 
+    const isAnalysisExists = await selectAnalysisById(id);
+    if (isAnalysisExists === null || isAnalysisExists === undefined) throw { type: "analysisNotExist", message: "A análise escolhida não existe!" }
+    
+
     await updateAnalysis(analysis, id);
 
 }
 
 export async function deleteAnalysisService(id: number) {
+
+    const isAnalysisExists = await selectAnalysisById(id);
+    if (isAnalysisExists === null || isAnalysisExists === undefined) throw { type: "analysisNotExist", message: "A análise escolhida não existe!" }
+    
 
     await removeAnalysis(id);
     
