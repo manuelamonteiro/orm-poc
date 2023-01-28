@@ -39,6 +39,7 @@ export async function getHumors(req: Request, res: Response) {
 export async function postHumor(req: Request, res: Response) {
 
     const humor = req.body as humorPost;
+    const userId = res.locals.userId
 
     try {
 

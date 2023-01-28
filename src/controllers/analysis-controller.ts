@@ -20,6 +20,7 @@ export async function getAnalysis(req: Request, res: Response) {
 export async function postAnalysis(req: Request, res: Response) {
 
     const analysis = req.body as analysisPost;
+    const userId = res.locals.userId;
 
     try {
 

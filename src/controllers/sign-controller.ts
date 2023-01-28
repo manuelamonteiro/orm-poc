@@ -48,8 +48,7 @@ export async function signIn(req: Request, res: Response) {
 
         res.locals.userId = user.id;
 
-        const userData = {name: user.name, userId: user.id}
-        console.log(userData)
+        const userData = {name: user.name, userId: user.id};
 
         const token = jwt.sign(userData, secretKey, config);
       

@@ -9,20 +9,26 @@ datasource db {
 
 model humor {
   id         Int     @id @default(autoincrement())
+  date       String  @unique
   mood       String?
   activities String?
-  date       String
+  userId     Int
+  users      users   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model analysis {
   id          Int     @id @default(autoincrement())
-  humorWhy    String?
-  howToChange String?
+  howtochange String?
+  humorwhy    String?
+  userId      Int
+  users       users   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model users {
-  id       Int    @id @default(autoincrement())
-  name     String @db.VarChar(50)
-  email    String @unique
+  id       Int        @id @default(autoincrement())
+  name     String     @db.VarChar(50)
+  email    String     @unique
   password String
+  analysis analysis[]
+  humor    humor[]
 }

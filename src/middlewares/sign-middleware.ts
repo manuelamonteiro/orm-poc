@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 import { signInSchema, userSchema } from "../schemas/sign-schema.js";
 import { selectUser } from "../repositories/sign-repository.js";
-import { signIn } from "../protocols.js";
 
 export function userSchemaValidation(req: Request, res: Response, next: NextFunction) {
 
@@ -47,7 +46,7 @@ export async function hasToken(req: Request, res: Response, next: NextFunction) 
     }
 
     try {
-        
+
         const userData = jwt.verify(token, secretKey) as JwtPayload;
 
         const userRows = await selectUser(Number(userData.userId));
