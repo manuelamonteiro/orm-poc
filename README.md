@@ -22,6 +22,30 @@ npm run dev
 
 ## Documentation
 
+- **POST**/sign-up
+
+Body: 
+
+```bash
+{
+    "name": ,
+    "email": ,
+    "password": ,
+    "confirmPassword": 
+}
+```
+
+- **POST**/sign-in
+
+Body: 
+
+```bash
+{
+    "email": ,
+    "password": 
+}
+```
+
 - **GET**/humors
 
 Get all your records or filter by mood.
@@ -30,11 +54,12 @@ Response:
 
 ```bash
 {
-    "id": 1,
-    "date": "21/01/2022",
-    "hour": "20:56",
-    "mood": "bem",
-    "activities": "almoço com amigos"
+    "id": ,
+    "date": ,
+    "hour": ,
+    "mood": ,
+    "activities": ,
+    "userId": 
 }
 ```
 
@@ -46,14 +71,14 @@ Body:
 
 ```bash
 {
-    "date": "21/01/2022",
-    "hour": "20:56",
-    "mood": "bem",
-    "activities": "almoço com amigos"
+    "date": ,
+    "hour": ,
+    "mood": ,
+    "activities": 
 }
 ```
 
-- **PUT**/humor/:id
+- **PATCH**/humor/:id
 
 Update your record.
 
@@ -61,12 +86,58 @@ Body:
 
 ```bash
 {
-    "mood": "bem",
-    "activities": "almoço com amigos e praia"
+    "mood": ,
+    "activities": 
 }
 ```
 
 - **DELETE**/humor/:id
+
+Delete your record.
+
+- **GET**/analysis
+
+Get all your records.
+
+Response:
+
+```bash
+{
+    "id": ,
+    "humorWhy": ,
+    "howToChange": ,
+    "userId":
+    
+}
+```
+
+- **POST**/analysis
+
+Post your record.
+
+Body: 
+
+```bash
+{
+    "humorWhy": ,
+    "howToChange": ,
+}
+```
+
+- **PATCH**/analysis/:id
+
+Update your record.
+
+Body:
+
+```bash
+{
+    "humorWhy": ,
+    "howToChange": 
+}
+```
+
+- **analysis**/humor/:id
 
 Delete your record.
 
