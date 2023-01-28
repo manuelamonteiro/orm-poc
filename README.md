@@ -137,7 +137,7 @@ Body:
 }
 ```
 
-- **analysis**/humor/:id
+- **DELETE**/analysis/:id
 
 Delete your record.
 
