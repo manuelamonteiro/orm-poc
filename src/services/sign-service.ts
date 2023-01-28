@@ -1,6 +1,4 @@
-import bcrypt from "bcrypt";
-import jwt from 'jsonwebtoken';
-import { checkEmail, insertUser, selectUser } from "../repositories/sign-repository.js";
+import { checkEmail, insertUser } from "../repositories/sign-repository.js";
 
 export async function signUpService(name: string, email: string, passwordHash: string) {
 
@@ -11,7 +9,4 @@ export async function signUpService(name: string, email: string, passwordHash: s
 
     await insertUser(name, email, passwordHash);
 
-}
-
-export async function signInService() {
 }
