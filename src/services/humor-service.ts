@@ -18,9 +18,9 @@ export async function getHumorsService() {
 
 }
 
-export async function postHumorService(humor: humorPost) {
+export async function postHumorService(humor: humorPost, userId: number) {
 
-    await insertHumor(humor);
+    await insertHumor(humor, userId);
  
 }
 

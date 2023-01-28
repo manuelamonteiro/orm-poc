@@ -8,9 +8,9 @@ export async function getAnalysisService() {
 
 }
 
-export async function postAnalysisService(analysis: analysisPost) {
+export async function postAnalysisService(analysis: analysisPost, userId: number) {
 
-    await insertAnalysis(analysis);
+    await insertAnalysis(analysis, userId);
 
 }
 

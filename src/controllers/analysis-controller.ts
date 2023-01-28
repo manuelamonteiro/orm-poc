@@ -20,11 +20,11 @@ export async function getAnalysis(req: Request, res: Response) {
 export async function postAnalysis(req: Request, res: Response) {
 
     const analysis = req.body as analysisPost;
-    const userId = res.locals.userId;
+    const userId = Number(res.locals.user.userId);
 
     try {
 
-        await postAnalysisService(analysis);
+        await postAnalysisService(analysis, userId);
         res.status(201).send({ message: "Análise inserida com sucesso!" });
 
     } catch (error) {

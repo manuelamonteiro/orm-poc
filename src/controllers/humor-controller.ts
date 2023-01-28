@@ -39,11 +39,11 @@ export async function getHumors(req: Request, res: Response) {
 export async function postHumor(req: Request, res: Response) {
 
     const humor = req.body as humorPost;
-    const userId = res.locals.userId
+    const userId = Number(res.locals.user.userId);
 
     try {
 
-        await postHumorService(humor);
+        await postHumorService(humor, userId);
         res.status(201).send({ message: "Humor inserido com sucesso!" });
 
     } catch (error) {

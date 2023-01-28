@@ -5,12 +5,13 @@ export async function selectAllAnalysis() {
     return prisma.analysis.findMany();
 }
 
-export async function insertAnalysis(analysis: analysisPost) {
+export async function insertAnalysis(analysis: analysisPost, userId: number) {
     return prisma.analysis.create({
         data: {
-            humorWhy: analysis.humorWhy,
-            howToChange: analysis.howToChange
-        }
+            userId,
+            humorwhy: analysis.humorWhy,
+            howtochange: analysis.howToChange
+        }    
     })
 }
 
@@ -28,8 +29,8 @@ export async function updateAnalysis(analysis: analysisPost, id: number) {
             id: id
         },
         data: {
-            humorWhy: analysis.humorWhy,
-            howToChange: analysis.howToChange
+            humorwhy: analysis.humorWhy,
+            howtochange: analysis.howToChange
         }
     })
 }

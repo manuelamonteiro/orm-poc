@@ -13,9 +13,10 @@ export async function selectHumorsByMood(mood: string) {
     })
 }
 
-export async function insertHumor(humor: humorPost) {
+export async function insertHumor(humor: humorPost, userId: number) {
     return prisma.humor.create({
         data: {
+            userId,
             date: humor.date,
             mood: humor.mood,
             activities: humor.activities
