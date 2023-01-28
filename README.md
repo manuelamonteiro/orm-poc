@@ -56,7 +56,6 @@ Response:
 {
     "id": ,
     "date": ,
-    "hour": ,
     "mood": ,
     "activities": ,
     "userId": 
@@ -72,7 +71,6 @@ Body:
 ```bash
 {
     "date": ,
-    "hour": ,
     "mood": ,
     "activities": 
 }
